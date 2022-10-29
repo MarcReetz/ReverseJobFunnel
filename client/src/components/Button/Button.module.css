@@ -1,8 +1,10 @@
+@import "../../colors.css";
+
 .button{
   border: none;
   border-radius: 4px;
-  background-color: #FAF21A;
-  color: #25262b;
+  background-color: var(--yellow);
+  color: var(--gray);
 }
 
 .button p {

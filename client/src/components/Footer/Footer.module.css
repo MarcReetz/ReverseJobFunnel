@@ -12,11 +12,11 @@
 }
 
 .container a {
-  color:#d4d5d9
+  color:var(--darkText)
 }
 
 .point {
   margin-left: 15px;
   margin-right: 15px;
-  color:#B1B2B5
+  color:var(--darkText)
 }
