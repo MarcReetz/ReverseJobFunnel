@@ -1,0 +1,31 @@
+.input{
+  color:#d4d5d9;
+  background-color: #25262b;
+  border: 1px solid #373a40;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 4px;
+  transition: border-color 100ms ease 0s;
+}
+
+.input:focus{
+  border: 1px solid #1971c3;
+  box-shadow: none;
+  outline: none;
+}
+
+.greenBorder{
+  border-color: #19C235;
+}
+
+.greenBorder:focus{
+  border-color: #19C235;
+}
+
+.redBorder{
+  border-color: #C21919;
+}
+
+.redBorder:focus{
+  border-color: #C21919;
+}
