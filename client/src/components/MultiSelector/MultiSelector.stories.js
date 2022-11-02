@@ -11,7 +11,9 @@ export const First = Template.bind({})
 
 First.args = {
   entrys:[
-    
-  ]
+    {text:"timeslot",isChecked: true},
+    {text:"timeslot",isChecked: true}
+  ],
+  onClick: (element) => {}
 }
 
