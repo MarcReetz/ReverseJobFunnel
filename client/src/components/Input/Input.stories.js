@@ -12,5 +12,6 @@ export const First = Template.bind({})
 First.args = {
   isValid: false,
   isError: false,
-  placeholder: 'placeholder'
+  placeholder: 'placeholder',
+  name:"test"
 }

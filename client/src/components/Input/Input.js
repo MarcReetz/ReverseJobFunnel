@@ -7,6 +7,6 @@ export default function Input (props) {
   const classes = styles.input + ' ' + greenBorder + ' ' + redBorder
 
   return(
-    <input className={classes} placeholder={props.placeholder}/>
+    <input className={classes} placeholder={props.placeholder} name={props.name}/>
   )
 }
