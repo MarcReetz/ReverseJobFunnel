@@ -1,10 +1,13 @@
 import Input from "../../components/Input/Input";
 import EmojiText from "../../components/EmojiText/EmojiText"
 import styles from "./SubmitPage.module.css"
+import ResponsiveContainer from "../../components/ResponsiveContainer/ResponsiveContainer"
+import Button from "../../components/Button/Button"
+import Selector from "../../components/Selector/Selector"
 
 export default function SubmitPage() {
   return (
-    <div>
+    <ResponsiveContainer>
       <div className={styles.inputContainer}>
         <EmojiText emoji={"👋"} text={"Dein Name"}/>
         <Input placeholder={"max mustermann"} name={"name"}/>
@@ -13,6 +16,8 @@ export default function SubmitPage() {
         <EmojiText emoji={"📞"} text={"Deine Telefonnummer"}  htmlFor={"phoneNumber"}/>
         <Input placeholder={"01234 56789"} name={"phoneNumber"}/>  
       </div>
-    </div>
+      <Selector emoji={"🖋️"} text={"Datenschutz erklärung gelesn und Akzeptiert"}/>
+      <Button text={"Absenden 📬"}/>
+    </ResponsiveContainer>
   );
 }

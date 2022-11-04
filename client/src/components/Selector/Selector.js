@@ -9,7 +9,7 @@ export default function Selector (props) {
           <p>{props.emoji}</p>
         </div>
         <div className={styles.text}>
-          <p>Hello</p>
+          <p>{props.text}</p>
         </div>
         <div className={styles.circle}>
         {props.isChecked && (<div className={styles.innerCircle}/>)}
