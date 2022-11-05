@@ -1,4 +1,9 @@
 .inputContainer{
   display: grid;
-  max-width: 400px;
+}
+
+.container{
+  margin-top: 30px;
+  display: grid;
+  row-gap: 30px;
 }
