@@ -5,6 +5,7 @@
   border-radius: 4px;
   background-color: var(--yellow);
   color: var(--gray);
+  margin: 5px;
 }
 
 .button p {

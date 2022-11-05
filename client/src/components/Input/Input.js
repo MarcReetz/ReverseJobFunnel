@@ -6,7 +6,21 @@ export default function Input (props) {
   const greenBorder = props.isValid ? styles.greenBorder : ''
   const classes = styles.input + ' ' + greenBorder + ' ' + redBorder
 
+  const propertys = {
+    className:classes,
+    placeholder: props.placeholder,
+    name:props.name,
+  }
+
+  if(props.value){
+    propertys.value = props.value
+  }
+
+  if(props.onChange){
+    propertys.onChange = props.onChange
+  }
+
   return(
-    <input className={classes} placeholder={props.placeholder}/>
+    <input {...propertys}/>
   )
 }
