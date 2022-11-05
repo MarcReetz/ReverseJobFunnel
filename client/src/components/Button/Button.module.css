@@ -6,6 +6,7 @@
   background-color: var(--yellow);
   color: var(--gray);
   margin: 5px;
+  cursor: pointer;
 }
 
 .button p {

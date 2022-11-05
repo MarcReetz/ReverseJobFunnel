@@ -11,6 +11,7 @@
   grid-template-columns: 1fr 50px;
   transition: 100ms linear background-color;
   background-color: var(--background);
+  cursor: pointer;
 }
 
 
