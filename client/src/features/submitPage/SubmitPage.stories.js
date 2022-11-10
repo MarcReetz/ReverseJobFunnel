@@ -10,5 +10,5 @@ const Template = (args) => <SubmitPage{...args} />;
 export const First = Template.bind({})
 
 First.args = {
-
+  
 }
