@@ -2,6 +2,7 @@ import ResponsiveContainer from "../../components/ResponsiveContainer/Responsive
 import SubTitle from "../../components/SubTitle/SubTitle"
 import Title from "../../components/Title/Title"
 import Button from "../../components/Button/Button"
+import CenterX from "../../components/Center/CenterX"
 
 export default function StartPage () {
 
@@ -22,8 +23,9 @@ export default function StartPage () {
         Ort: Bremen und Umgebung / <br/>
         remote weltweit
       </SubTitle>
-
-      <Button text={"Finde mehr über mich heraus 🎉"}/>
+      <CenterX>
+        <Button text={"Finde mehr über mich heraus 🎉"}/>
+      </CenterX>
       <SubTitle>
         <strong>Ein Marc für ihr Team</strong>
       </SubTitle>
