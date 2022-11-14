@@ -1,0 +1,26 @@
+.link {
+  text-decoration: none;
+  position: fixed;
+}
+
+.link img {
+  height: 32px;
+  width: 32px;
+  margin: 0px 14px;
+}
+
+.container {
+  background-color: var(--white);
+  display: flex;
+  border-radius: 30px;
+  align-items: center;
+  width: auto;
+}
+
+.container p {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 12px;
+  margin-right: 30px;
+}
+
