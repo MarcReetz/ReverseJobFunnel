@@ -1,12 +1,13 @@
-:root{
-  --background: #1A1B1E;
+:root {
+  --background: #1a1b1e;
   --gray: #25262b;
-  --lightGray: #373A40;
-  --darkText:#B1B2B5;
-  --text:#d4d5d9;
-  --red:#C21919;
-  --green:#19C235;
-  --yellow:#FAF21A;
-  --yellow-grayout:#82816B;
-  --blue:#1971C3;
+  --white: #f8f8fa;
+  --lightGray: #373a40;
+  --darkText: #b1b2b5;
+  --text: #d4d5d9;
+  --red: #c21919;
+  --green: #19c235;
+  --yellow: #faf21a;
+  --yellow-grayout: #82816b;
+  --blue: #1971c3;
 }
