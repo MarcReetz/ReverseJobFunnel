@@ -13,7 +13,7 @@ export default function SecondPage () {
         <EmojiTextTableElement emoji={"💻"}>Ein paar dinge mit dehnen ich Arbeite: Go, Javascript, Css3, Html5</EmojiTextTableElement>
       </EmojiTextTable>
       <CenterX>
-        <Button>Cool was hast du noch zu bieten</Button>
+        <Button text={"Cool was hast du noch zu bieten"}/>
       </CenterX>
     </ResponsiveContainer>
   )
