@@ -16,3 +16,8 @@
   font-weight: 600;
   font-size: 20px;
 }
+
+.inactive {
+  background-color: var(--yellow-grayout);
+  cursor: not-allowed;
+}
