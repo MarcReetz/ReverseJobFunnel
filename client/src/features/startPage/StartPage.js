@@ -3,8 +3,12 @@ import SubTitle from "../../components/SubTitle/SubTitle"
 import Title from "../../components/Title/Title"
 import Button from "../../components/Button/Button"
 import CenterX from "../../components/Center/CenterX"
+import { useNavigate } from "react-router-dom";
+
 
 export default function StartPage () {
+
+  const navigate = useNavigate();
 
   return (
     <ResponsiveContainer>
@@ -24,7 +28,7 @@ export default function StartPage () {
         remote weltweit
       </SubTitle>
       <CenterX>
-        <Button text={"Finde mehr über mich heraus 🎉"}/>
+        <Button text={"Finde mehr über mich heraus 🎉"} onClick={() => navigate('/skills')}/>
       </CenterX>
       <SubTitle>
         <strong>Ein Marc für ihr Team</strong>

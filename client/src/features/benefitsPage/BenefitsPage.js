@@ -4,9 +4,13 @@ import Selector from "../../components/Selector/Selector";
 import Title from "../../components/Title/Title";
 import SubTitle from "../../components/SubTitle/SubTitle";
 import Button from "../../components/Button/Button";
-import CenterX from '../../components/Center/CenterX'
+import CenterX from '../../components/Center/CenterX';
+import { useNavigate } from "react-router-dom";
 
 export default function BenefitsPage() {
+
+  const navigate = useNavigate();
+
   return (
     <ResponsiveContainer>
       <Title>Welche Benefits kann man bei euch erwarten? </Title>
@@ -20,7 +24,7 @@ export default function BenefitsPage() {
         <Selector text={"Job fitness Angebote"} />
       </EmojiTextTable>
       <CenterX>
-        <Button text={"Zum Letzten Schritt 🏁"} />
+        <Button text={"Zum Letzten Schritt 🏁"} onClick={() => navigate('/submit')}/>
       </CenterX>
     </ResponsiveContainer>
   );
