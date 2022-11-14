@@ -12,4 +12,5 @@ export const First = Template.bind({})
 First.args = {
   isChecked: true,
   emoji: "💻",
+  text: "you use cool tech"
 }
