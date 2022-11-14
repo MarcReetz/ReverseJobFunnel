@@ -1,6 +1,9 @@
 .link {
   text-decoration: none;
   position: fixed;
+  right: 20px;
+  bottom: 20px;
+  max-height: 50px;
 }
 
 .link img {
