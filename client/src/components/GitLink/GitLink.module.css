@@ -18,6 +18,7 @@
   border-radius: 30px;
   align-items: center;
   width: auto;
+  z-index: 500;
 }
 
 .container p {
