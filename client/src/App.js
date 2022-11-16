@@ -6,7 +6,7 @@ import SecondPage from './features/secondPage/SecondPage'
 import ThirdPage from './features/thirdPage/ThirdPage'
 import BenefitsPage from "./features/benefitsPage/BenefitsPage"
 import SubmitPage from './features/submitPage/SubmitPage'
-import SKillQuizPage from './features/skillQuizPage/SkillQuizPage';
+import SkillQuizPage from './features/skillQuizPage/SkillQuizPage';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path={'softskills'} element={<ThirdPage/>}/>
         <Route path={'benefits'} element={<BenefitsPage/>}/>
         <Route path={'submit'} element={<SubmitPage/>}/>
-        <Route path={'skillQuiz'} element={<SKillQuizPage/>}/>
+        <Route path={'skillQuiz'} element={<SkillQuizPage/>}/>
       </Route>
      </Routes>
   );
