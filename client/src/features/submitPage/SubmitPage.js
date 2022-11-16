@@ -5,6 +5,8 @@ import ResponsiveContainer from "../../components/ResponsiveContainer/Responsive
 import Button from "../../components/Button/Button";
 import Selector from "../../components/Selector/Selector";
 import React, { useState } from 'react';
+import Title from "../../components/Title/Title"
+import SubTitle from "../../components/SubTitle/SubTitle"
 
 export default function SubmitPage() {
 
@@ -61,6 +63,8 @@ export default function SubmitPage() {
   return (
     <ResponsiveContainer>
       <div className={styles.inputContainer}>
+        <SubTitle>Fast geschafft 🎉 Letzter Schritt! </SubTitle>
+        <Title>Cool! Ich möchte dich und dein Team sehr gerne kennenlernen.</Title>
         <EmojiText emoji={"👋"} text={"Dein Name"} />
         <Input placeholder={"max mustermann"} name={"name"} value={name} onChange={onChangeName} isValid={isValidName} isError={isErrorName}/>
         <EmojiText
@@ -84,7 +88,9 @@ export default function SubmitPage() {
           onClick={onClickPrivacy}
         />
         <Button text={"Absenden 📬"} />
-      </div>
+        
+        <SubTitle><strong>So geht's jetzt weiter:</strong> <br/> Ich melde mich bei dir zeitnah, um ein 5 minutiges telefongespräch mit dir zu führen. <br/> Wenn wir gut zueinander passen, können wir von da aus weiter schauen.</SubTitle>
+        </div>
     </ResponsiveContainer>
   );
 }
