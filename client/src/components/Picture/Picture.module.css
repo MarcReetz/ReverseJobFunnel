@@ -1,0 +1,10 @@
+.picture {
+  display: block;
+  height: 60%;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
