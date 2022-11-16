@@ -4,6 +4,7 @@ import Title from "../../components/Title/Title"
 import Button from "../../components/Button/Button"
 import CenterX from "../../components/Center/CenterX"
 import { useNavigate } from "react-router-dom";
+import Picture from "../../components/Picture/Pitcture"
 
 
 export default function StartPage () {
@@ -33,6 +34,7 @@ export default function StartPage () {
       <SubTitle>
         <strong>Ein Marc für ihr Team</strong>
       </SubTitle>
+      <Picture src={'me.jpeg'}/>
     </ResponsiveContainer>
   )
 } 
