@@ -6,7 +6,7 @@ export default {
   component: QuizButtonContainer
 }
 
-const Template = (args) => <QuizButtonContainer {...args}><QuizButton text={'Abschlüsse'}/><QuizButton text={'Fähigkeiten'}/></QuizButtonContainer>
+const Template = (args) => <QuizButtonContainer {...args}><QuizButton  emoji= '📜' text={'Abschlüsse'}/><QuizButton emoji= '💡' text={'Fähigkeiten'}/></QuizButtonContainer>
 
 export const First = Template.bind()
 
