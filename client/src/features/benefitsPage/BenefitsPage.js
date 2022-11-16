@@ -8,6 +8,7 @@ import CenterX from '../../components/Center/CenterX';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFitness,selectHoliday,switchFitness,switchHoliday} from "./benefitsSlice";
+import SpacerX from "../../components/Spacer/SpacerX";
 
 export default function BenefitsPage() {
 
@@ -26,6 +27,7 @@ export default function BenefitsPage() {
         <Selector text={"Job fitness Angebote"} />
         <Selector text={"Job fitness Angebote"} />
       </EmojiTextTable>
+      <SpacerX size={"l"}/>
       <CenterX>
         <Button text={"Zum Letzten Schritt 🏁"} onClick={() => navigate('/submit')}/>
       </CenterX>
