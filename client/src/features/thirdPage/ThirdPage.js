@@ -19,7 +19,7 @@ export default function ThirdPage () {
       </EmojiTextTable>
       <SubTitle>Das hört sich alles gut an bis jetzt? <br/>Finde im Quiz Heraus ob wir zu einander passen</SubTitle>
       <CenterX>
-        <Button text={"jetzt in wenigen Quizfragen heraus finden"} onClick={() => navigate('/benefits')}/>
+        <Button text={"jetzt in wenigen Quizfragen heraus finden"} onClick={() => navigate('/skill-quiz')}/>
       </CenterX>
     </ResponsiveContainer>
   )
