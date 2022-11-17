@@ -22,7 +22,7 @@ export default function TeamQuizPage () {
       </SubTitle>
       <QuizButtonContainer>
         <QuizButton emoji="❌" text={"Nein"} />
-        <QuizButton emoji="👩🏽‍💻👨🏼‍💻🧑🏻‍💻" text={"Ja! Teamwork lets the Dream Work!"} onClick={() => navigate()}/>
+        <QuizButton emoji="👩🏽‍💻👨🏼‍💻🧑🏻‍💻" text={"Ja! Teamwork lets the Dream Work!"} onClick={() => navigate('/concentration-quiz')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
   )

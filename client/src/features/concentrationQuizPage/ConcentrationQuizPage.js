@@ -18,7 +18,7 @@ export default function ConcentrationQuizPage () {
       </SubTitle>
       <QuizButtonContainer>
         <QuizButton emoji="🔊" text={"Wie du brauchst ruhe zum arbeiten !?"} />
-        <QuizButton emoji="🧠" text={"Natürlich"} onClick={() => navigate()}/>
+        <QuizButton emoji="🧠" text={"Natürlich"} onClick={() => navigate('/benefits')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
   )

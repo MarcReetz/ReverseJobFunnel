@@ -15,7 +15,7 @@ export default function SKillQuizPage() {
       </Title>
       <QuizButtonContainer>
         <QuizButton emoji="📜" text={"Abschlüsse"} />
-        <QuizButton emoji="💡" text={"Fähigkeiten"} onClick={() => navigate()}/>
+        <QuizButton emoji="💡" text={"Fähigkeiten"} onClick={() => navigate('/training-quiz')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
   );

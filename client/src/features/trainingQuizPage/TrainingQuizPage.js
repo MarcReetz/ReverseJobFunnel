@@ -15,7 +15,7 @@ export default function TrainingQuizPage () {
       </Title>
       <QuizButtonContainer>
         <QuizButton emoji="⌛" text={"Nach 3 Tagen hat man alles drauf!"} />
-        <QuizButton emoji="🤜🏼🤛🏾" text={"Klar!"} onClick={() => navigate()}/>
+        <QuizButton emoji="🤜🏼🤛🏾" text={"Klar!"} onClick={() => navigate('/team-quiz')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
   )

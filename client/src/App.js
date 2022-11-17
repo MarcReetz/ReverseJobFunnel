@@ -7,6 +7,9 @@ import ThirdPage from './features/thirdPage/ThirdPage'
 import BenefitsPage from "./features/benefitsPage/BenefitsPage"
 import SubmitPage from './features/submitPage/SubmitPage'
 import SkillQuizPage from './features/skillQuizPage/SkillQuizPage';
+import TrainingQuizPage from './features/trainingQuizPage/TrainingQuizPage';
+import TeamQuizPage from './features/teamQuizPage/TeamQuizPage';
+import ConcentrationQuizPage from './features/concentrationQuizPage/ConcentrationQuizPage';
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
         <Route path={'softskills'} element={<ThirdPage/>}/>
         <Route path={'benefits'} element={<BenefitsPage/>}/>
         <Route path={'submit'} element={<SubmitPage/>}/>
-        <Route path={'skillQuiz'} element={<SkillQuizPage/>}/>
+        <Route path={'skill-quiz'} element={<SkillQuizPage/>}/>
+        <Route path={'training-quiz'} element={<TrainingQuizPage/>}/>
+        <Route path={'team-quiz'} element={<TeamQuizPage/>}/>
+        <Route path={'concentration-quiz'} element={<ConcentrationQuizPage/>}/>
       </Route>
      </Routes>
   );
