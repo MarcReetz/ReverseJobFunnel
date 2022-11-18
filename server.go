@@ -8,6 +8,19 @@ import (
 	"github.com/go-chi/cors"
 )
 
+type inquiry struct {
+	Name            string `json:"name"`
+	Email           string `json:"email"`
+	Phone           string `json:"phone"`
+	DataProtection  bool   `json:"dataprotection"`
+	Hardware        bool   `json:"hardware"`
+	Workingtime     bool   `json:"workingtime"`
+	Fitness         bool   `json:"fitnes"`
+	Holiday         bool   `json:"holiday"`
+	Education       bool   `json:"education"`
+	WorkingFromHome bool   `json:workingfromhome`
+}
+
 func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
