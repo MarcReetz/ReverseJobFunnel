@@ -9,7 +9,7 @@ import SubmitPage from "./features/submitPage/SubmitPage";
 import SkillQuizPage from "./features/skillQuizPage/SkillQuizPage";
 import TrainingQuizPage from "./features/trainingQuizPage/TrainingQuizPage";
 import TeamQuizPage from "./features/teamQuizPage/TeamQuizPage";
-import FailPage from "./";
+import FailPage from "./features/failPage/FailPage";
 import ConcentrationQuizPage from "./features/concentrationQuizPage/ConcentrationQuizPage";
 
 function App() {
