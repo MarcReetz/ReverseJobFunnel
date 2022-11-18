@@ -6,3 +6,7 @@
   line-height: 1.25;
   text-align: left;
 }
+
+.text a {
+  color: var(--yellow);
+}
