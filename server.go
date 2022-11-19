@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -8,7 +9,7 @@ import (
 	"github.com/go-chi/cors"
 )
 
-type inquiry struct {
+type Inquiry struct {
 	Name            string `json:"name"`
 	Email           string `json:"email"`
 	Phone           string `json:"phone"`
@@ -18,7 +19,7 @@ type inquiry struct {
 	Fitness         bool   `json:"fitnes"`
 	Holiday         bool   `json:"holiday"`
 	Education       bool   `json:"education"`
-	WorkingFromHome bool   `json:workingfromhome`
+	WorkingFromHome bool   `json:"workingfromhome"`
 }
 
 func main() {
@@ -44,6 +45,13 @@ func main() {
 }
 
 func signup(w http.ResponseWriter, r *http.Request) {
+	var inquiry Inquiry
+
+	err := json.NewDecoder(r.Body).Decode(&inquiry)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 
 }
 
