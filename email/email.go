@@ -25,7 +25,6 @@ func (m *Mailer) SendMail(to, text string, title string) error {
 
 	// Create authentication
 	auth := smtp.PlainAuth("", m.username, m.password, m.smtpHost)
-	log.Println(auth)
 
 	from := mail.Address{Name: m.displayname, Address: m.username}
 
