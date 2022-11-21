@@ -108,7 +108,8 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 	timeNow, _ := time.Now().MarshalText()
 
 	if _, err := db.Exec(context.Background(), "UPDATE email_verification SET verifyt = $1, verifyt_at = $2 WHERE inquiry_id = $3", true, timeNow, mailId); err != nil {
-		w.WriteHeader(http.StatusAccepted)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 
+	w.WriteHeader(http.StatusAccepted)
 }
