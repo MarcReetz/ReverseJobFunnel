@@ -12,6 +12,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
+	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 )
@@ -94,20 +95,29 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 	timeString, _ := time.Now().MarshalText()
 
-	if _, err := db.Exec(context.Background(), "INSERT INTO inquiry (name,phone,email,send_at) values ($1,$2,$3,$4)", inquiry.Name, inquiry.Phone, inquiry.Email, timeString); err != nil {
+	if result, err := db.Exec(context.Background(), "INSERT INTO inquiry (name,phone,email,send_at) values ($1,$2,$3,$4)", inquiry.Name, inquiry.Phone, inquiry.Email, timeString); err != nil {
 		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	} else {
+		log.Println(result)
+	}
+
+	emailToken, err := uuid.NewRandom() //at error Handling !!
+	baseUrl := os.Getenv("SERVER_BASE_URL")
+	message := "PLS confirm your email Best wishes Marc /n" + "go to the following link to confirm you email:" + baseUrl + "/api/mail/" + emailToken.String()
+	if err := mailer.SendMail(inquiry.Email, message, "Confirm your email"); err != nil {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
-	message := "PLS confirm your email Best wishes Marc"
-
-	if err := mailer.SendMail(inquiry.Email, message, "Confirm your email"); err != nil {
-
+	timeStringEmail, _ := time.Now().MarshalText()
+	if _, err := db.Exec(context.Background(), "INSERT INTO email_verification (id,time_send) values ($1,$2)", emailToken, timeStringEmail); err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
 	}
 
 	w.WriteHeader(http.StatusCreated)
-
 }
 
 func mailSignup(w http.ResponseWriter, r *http.Request) {
