@@ -58,7 +58,7 @@ func main() {
 	defer db.Close()
 
 	log.Println("Init Mail Service")
-	mailer = email.NewMailer(os.Getenv("EMAIL_USERNAME"), os.Getenv("EMAIL_PASSWORD"), os.Getenv("EMAIL_SMTP_HOST"), os.Getenv("EMAIL_SMTP_PORT"))
+	mailer = email.NewMailer(os.Getenv("EMAIL_DISPLAYNAME"), os.Getenv("EMAIL_USERNAME"), os.Getenv("EMAIL_PASSWORD"), os.Getenv("EMAIL_SMTP_HOST"), os.Getenv("EMAIL_SMTP_PORT"))
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
@@ -101,8 +101,10 @@ func signup(w http.ResponseWriter, r *http.Request) {
 	}
 
 	message := "PLS confirm your email Best wishes Marc"
-	log.Println("Send Mail")
-	mailer.SendMail(inquiry.Email, message)
+
+	if err := mailer.SendMail(inquiry.Email, message, "Confirm your email"); err != nil {
+
+	}
 
 	w.WriteHeader(http.StatusCreated)
 

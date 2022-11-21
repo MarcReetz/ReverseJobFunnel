@@ -21,18 +21,13 @@ func NewMailer(displayname string, username string, password string, smtpHost st
 	return mailer
 }
 
-func (m *Mailer) SendMail(to, text string) {
-
-	log.Println("mail text")
+func (m *Mailer) SendMail(to, text string, title string) error {
 
 	// Create authentication
-	log.Println("before authentification")
 	auth := smtp.PlainAuth("", m.username, m.password, m.smtpHost)
 	log.Println(auth)
 
-	from := mail.Address{m.displayname, m.username}
-
-	title := "Confirm everythink"
+	from := mail.Address{Name: m.displayname, Address: m.username}
 
 	body := text
 
@@ -53,6 +48,10 @@ func (m *Mailer) SendMail(to, text string) {
 	// Send actual message
 	err := smtp.SendMail(m.smtpHost+":"+m.smtpPort, auth, m.username, []string{to}, []byte(message))
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Somethink went wrong while sending a mail")
+		log.Println(err)
+		return err
 	}
+
+	return nil
 }
