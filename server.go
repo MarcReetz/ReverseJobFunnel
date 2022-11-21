@@ -8,10 +8,12 @@ import (
 	"os"
 	"time"
 
+	"github.com/MarcReetz/ReverseJobFunnel/email"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/joho/godotenv"
 )
 
 type Inquiry struct {
@@ -28,11 +30,18 @@ type Inquiry struct {
 }
 
 var db *pgxpool.Pool
+var mailer *email.Mailer
 
 const twodays = time.Hour * 48
 
 func main() {
-
+	log.Println("Starting up Server")
+	log.Println("Loading env")
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Some error occured. Err: %s", err)
+	}
+	log.Println("Loading Database")
 	log.Println(os.Getenv("DATABASE_URL"))
 	poolConfig, err := pgxpool.ParseConfig(os.Getenv("DATABASE_URL"))
 	if err != nil {
@@ -45,6 +54,11 @@ func main() {
 	if err != nil {
 		log.Fatalln("Unable to create connection pool:", err)
 	}
+
+	defer db.Close()
+
+	log.Println("Init Mail Service")
+	mailer = email.NewMailer(os.Getenv("EMAIL_USERNAME"), os.Getenv("EMAIL_PASSWORD"), os.Getenv("EMAIL_SMTP_HOST"), os.Getenv("EMAIL_SMTP_PORT"))
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
@@ -65,6 +79,8 @@ func main() {
 		r.Get("/mail/{mailID}", mailSignup)
 	})
 
+	http.ListenAndServe(":3000", r)
+
 }
 
 func signup(w http.ResponseWriter, r *http.Request) {
@@ -76,7 +92,19 @@ func signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	time.Now().MarshalText()
+	timeString, _ := time.Now().MarshalText()
+
+	if _, err := db.Exec(context.Background(), "INSERT INTO inquiry (name,phone,email,send_at) values ($1,$2,$3,$4)", inquiry.Name, inquiry.Phone, inquiry.Email, timeString); err != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	message := "PLS confirm your email Best wishes Marc"
+	log.Println("Send Mail")
+	mailer.SendMail(inquiry.Email, message)
+
+	w.WriteHeader(http.StatusCreated)
 
 }
 
