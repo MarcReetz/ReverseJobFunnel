@@ -117,6 +117,8 @@ func signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if _, err := db.Exec(context.Background(),"INSERT INTO answers (dataProtection,hardware,workingtime,fitness,holiday,education,workingFromHome) values ($1,$2,$3,$4,$5,$6,$7)",inquiry.DataProtection)
+
 	w.WriteHeader(http.StatusCreated)
 }
 
