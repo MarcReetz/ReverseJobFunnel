@@ -17,7 +17,7 @@ export default function ConcentrationQuizPage () {
       Neben Guten Team Work bekommt man bei euch im Team auch genügent zeit um alleine oder beim Pair Programming <strong>Konzentriet</strong> zu arbeiten 
       </SubTitle>
       <QuizButtonContainer>
-        <QuizButton emoji="🔊" text={"Wie du brauchst ruhe zum arbeiten !?"} />
+        <QuizButton emoji="🔊" text={"Wie du brauchst ruhe zum arbeiten !?"} onClick={() => navigate('/concentration-quiz-fail')} />
         <QuizButton emoji="🧠" text={"Natürlich"} onClick={() => navigate('/benefits')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
