@@ -34,6 +34,7 @@ export const benefitsSlice = createSlice({
   },
 });
 
+export const selectBenefitsSlice = (state) => state.benefits
 export const selectHardware = (state) => state.benefits.hardware
 export const selectTime = (state) => state.benefits.time
 export const selectFitness = (state) => state.benefits.fitness;

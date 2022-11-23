@@ -7,8 +7,14 @@ import Selector from "../../components/Selector/Selector";
 import React, { useState } from 'react';
 import Title from "../../components/Title/Title"
 import SubTitle from "../../components/SubTitle/SubTitle"
+import { useSelector } from "react-redux";
+import { selectBenefitsSlice } from "../benefitsPage/benefitsSlice";
+
 
 export default function SubmitPage() {
+  const benefitsSlice = useSelector(selectBenefitsSlice)
+
+  const baseUrl = "http://localhost:3000/"
 
   const [name,setName] = useState("")
   const [isValidName,setIsValidName] = useState(false)
@@ -60,6 +66,21 @@ export default function SubmitPage() {
     setPrivacy(!privacy)
   }
 
+  const onSubmit = () => {
+
+    const response = fetch(baseUrl + "api/signup", {
+      method: "Post",
+      body: JSON.stringify({ ...benefitsSlice
+      }),
+    });
+
+    response.then( response => {
+      if(response.status === 200){
+        console.log("Got a Response")
+      }
+    })
+  }
+
   return (
     <ResponsiveContainer>
       <div className={styles.inputContainer}>
@@ -87,7 +108,7 @@ export default function SubmitPage() {
           isChecked={privacy}
           onClick={onClickPrivacy}
         />
-        <Button text={"Absenden 📬"} />
+        <Button text={"Absenden 📬"} onClick={onSubmit}/>
         
         <SubTitle><strong>So geht's jetzt weiter:</strong> <br/> Ich melde mich bei dir zeitnah, um ein 5 minutiges telefongespräch mit dir zu führen. <br/> Wenn wir gut zueinander passen, können wir von da aus weiter schauen.</SubTitle>
         </div>
