@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   name: "",
   email: "",
-  phone: ""
+  phone: "",
+  dataProctection: false,
 };
 
 export const submitSlice = createSlice({
@@ -18,6 +19,9 @@ export const submitSlice = createSlice({
     },
     setPhone: (state,action) => {
       state.phone = action.payload
+    },
+    switchtDataProtection: (state) => {
+      state.dataProctection = !state.dataProctection
     }
   }
 })
@@ -26,7 +30,8 @@ export const selectSubmitSlice = (state) => state.submit
 export const selectName = (state) => state.submit.name
 export const selectEmail = (state) => state.submit.email
 export const selectPhone = (state) => state.submit.phone
+export const selectDataProtection = (state) => state.submit.dataProctection
 
-export const {setName,setEmail,setPhone} = submitSlice.actions;
+export const {switchtDataProtection,setName,setEmail,setPhone} = submitSlice.actions;
 
 export default submitSlice.reducer
