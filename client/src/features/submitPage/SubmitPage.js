@@ -28,8 +28,6 @@ export default function SubmitPage() {
   const [isValidPhone,setIsValidPhone] = useState(false)
   const [isErrorPhone,setIsErrorPhone] = useState(false)
 
-  const [privacy,setPrivacy] = useState(false)
-
   const onChangeName = (event) => {
     dispatch(setName(event.target.value))
     if(event.target.value.length > 0){
