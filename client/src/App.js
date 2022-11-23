@@ -41,6 +41,7 @@ function App() {
           path={"concentration-quiz"}
           element={<ConcentrationQuizPage />}
         />
+        <Route path={"concentration-quiz-fail"} element={<FailPage text={'ich brauche jedoch manchmal am Tag meine ruhe um aufgaben schnell und sauber zu bearbeiten.'} navigate={"/concentration-quiz"}/>}/>
         <Route path={"sucess"} element={<SucessSubmitPage/>} />
       </Route>
     </Routes>
