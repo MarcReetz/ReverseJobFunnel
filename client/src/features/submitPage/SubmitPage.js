@@ -7,6 +7,7 @@ import Selector from "../../components/Selector/Selector";
 import React, { useState } from 'react';
 import Title from "../../components/Title/Title"
 import SubTitle from "../../components/SubTitle/SubTitle"
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBenefitsSlice } from "../benefitsPage/benefitsSlice";
 import { setName,selectName, selectSubmitSlice,setEmail,selectEmail, selectPhone,setPhone, selectDataProtection, switchtDataProtection } from "./submitPageSlice";
@@ -16,6 +17,7 @@ export default function SubmitPage() {
   const benefitsSlice = useSelector(selectBenefitsSlice)
   const submitPageSlice = useSelector(selectSubmitSlice)
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const baseUrl = "http://localhost:3000/"
 
@@ -73,8 +75,8 @@ export default function SubmitPage() {
     });
 
     response.then( response => {
-      if(response.status === 200){
-        console.log("Got a Response")
+      if(response.status === 201){
+        navigate('/sucess')
       }
     })
   }

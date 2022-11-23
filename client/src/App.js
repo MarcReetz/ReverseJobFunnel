@@ -11,6 +11,7 @@ import TrainingQuizPage from "./features/trainingQuizPage/TrainingQuizPage";
 import TeamQuizPage from "./features/teamQuizPage/TeamQuizPage";
 import FailPage from "./features/failPage/FailPage";
 import ConcentrationQuizPage from "./features/concentrationQuizPage/ConcentrationQuizPage";
+import SucessSubmitPage from "./features/sucessSubmitPage/SucessSubmitPage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           path={"concentration-quiz"}
           element={<ConcentrationQuizPage />}
         />
+        <Route path={"sucess"} element={<SucessSubmitPage/>} />
       </Route>
     </Routes>
   );
