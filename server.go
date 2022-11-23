@@ -140,8 +140,6 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	log.Println(mailId)
-
 	var time_send string
 	if err := db.QueryRow(context.Background(), "SELECT time_send FROM email_verification WHERE id = $1", mailId).Scan(&time_send); err != nil {
 		http.Error(w, "No sending time found", http.StatusBadRequest)
@@ -150,7 +148,7 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 
 	date, err := time.Parse(time.RFC3339, time_send)
 	if err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		http.Error(w, "Internal Server Error (CODE 6)", http.StatusInternalServerError)
 		return
 	}
 
@@ -162,8 +160,9 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 
 	timeNow, _ := time.Now().MarshalText()
 
-	if _, err := db.Exec(context.Background(), "UPDATE email_verification SET verifyt = $1, verifyt_at = $2 WHERE inquiry_id = $3", true, timeNow, mailId); err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	if _, err := db.Exec(context.Background(), "UPDATE email_verification SET verifyt = $1, verifyt_at = $2 WHERE id = $3", true, timeNow, mailId); err != nil {
+		http.Error(w, "Internal Server Error (CODE 7)", http.StatusInternalServerError)
+		return
 	}
 
 	w.WriteHeader(http.StatusAccepted)
