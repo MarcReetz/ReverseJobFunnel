@@ -35,6 +35,7 @@ function App() {
           }
         />
         <Route path={"training-quiz"} element={<TrainingQuizPage />} />
+        <Route path={"training-quiz-fail"} element={<FailPage text={'ich suche jedoch eine Firma die mich gut Einarbeitet.'} navigate={'/training-quiz'}/>}/>
         <Route path={"team-quiz"} element={<TeamQuizPage />} />
         <Route
           path={"concentration-quiz"}
