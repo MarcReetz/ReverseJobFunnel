@@ -28,21 +28,40 @@ function App() {
           element={
             <FailPage
               text={
-                'ich kann dir und deinen Team leider nicht viele abschlüsse anbieten. Ich habe einige Kurse auf codecademy abgeschlossen. Ich besitze Relevante Fähikeiten in der Front- und Back-end etwicklung schaue dir dazu gerne mein verlinktes Github profile an!'
+                "ich kann dir und deinen Team leider nicht viele abschlüsse anbieten. Ich habe einige Kurse auf codecademy abgeschlossen. Ich besitze Relevante Fähikeiten in der Front- und Back-end etwicklung schaue dir dazu gerne mein verlinktes Github profile an!"
               }
-              navigate={'/skill-quiz'}
+              navigate={"/skill-quiz"}
             />
           }
         />
         <Route path={"training-quiz"} element={<TrainingQuizPage />} />
-        <Route path={"training-quiz-fail"} element={<FailPage text={'ich suche jedoch eine Firma die mich gut Einarbeitet.'} navigate={'/training-quiz'}/>}/>
+        <Route
+          path={"training-quiz-fail"}
+          element={
+            <FailPage
+              text={"ich suche jedoch eine Firma die mich gut Einarbeitet."}
+              navigate={"/training-quiz"}
+            />
+          }
+        />
         <Route path={"team-quiz"} element={<TeamQuizPage />} />
+        <Route path={"team-quiz-fail"} element={<FailPage text={'jedoch suche ich ein unternehmen mit einen modernen Team verständis.'} navigate={"/team-quiz"}/>}/>
         <Route
           path={"concentration-quiz"}
           element={<ConcentrationQuizPage />}
         />
-        <Route path={"concentration-quiz-fail"} element={<FailPage text={'ich brauche jedoch manchmal am Tag meine ruhe um aufgaben schnell und sauber zu bearbeiten.'} navigate={"/concentration-quiz"}/>}/>
-        <Route path={"sucess"} element={<SucessSubmitPage/>} />
+        <Route
+          path={"concentration-quiz-fail"}
+          element={
+            <FailPage
+              text={
+                "ich brauche jedoch manchmal am Tag meine ruhe um aufgaben schnell und sauber zu bearbeiten."
+              }
+              navigate={"/concentration-quiz"}
+            />
+          }
+        />
+        <Route path={"sucess"} element={<SucessSubmitPage />} />
       </Route>
     </Routes>
   );
