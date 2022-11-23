@@ -6,7 +6,7 @@ export default function Footer() {
       <div className={styles.container}>
         <a href="/impressum.html">Impressum</a>
         <span className={styles.point}>·</span>
-        <a href="/privacy">Datenschutz</a>
+        <a href="/datenschutz.html">Datenschutz</a>
       </div>
     </footer>
   )
