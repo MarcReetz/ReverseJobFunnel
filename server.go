@@ -24,7 +24,7 @@ type Inquiry struct {
 	DataProtection  bool   `json:"dataprotection"`
 	Hardware        bool   `json:"hardware"`
 	Workingtime     bool   `json:"workingtime"`
-	Fitness         bool   `json:"fitnes"`
+	Fitness         bool   `json:"fitness"`
 	Holiday         bool   `json:"holiday"`
 	Education       bool   `json:"education"`
 	WorkingFromHome bool   `json:"workingfromhome"`
@@ -97,23 +97,36 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 	if result, err := db.Exec(context.Background(), "INSERT INTO inquiry (name,phone,email,send_at) values ($1,$2,$3,$4)", inquiry.Name, inquiry.Phone, inquiry.Email, timeString); err != nil {
 		log.Println(err)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		http.Error(w, "Internal Server Error (CODE 1)", http.StatusInternalServerError)
 		return
 	} else {
 		log.Println(result)
+	}
+
+	var inquiry_id int
+
+	if err := db.QueryRow(context.Background(), "SELECT id FROM inquiry WHERE email = $1", inquiry.Email).Scan(&inquiry_id); err != nil {
+		http.Error(w, "Internal Server Error (CODE 2)", http.StatusInternalServerError)
+		return
 	}
 
 	emailToken, err := uuid.NewRandom() //at error Handling !!
 	baseUrl := os.Getenv("SERVER_BASE_URL")
 	message := "PLS confirm your email Best wishes Marc /n" + "go to the following link to confirm you email:" + baseUrl + "/api/mail/" + emailToken.String()
 	if err := mailer.SendMail(inquiry.Email, message, "Confirm your email"); err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		http.Error(w, "Internal Server Error (CODE 3)", http.StatusInternalServerError)
 		return
 	}
 
 	timeStringEmail, _ := time.Now().MarshalText()
-	if _, err := db.Exec(context.Background(), "INSERT INTO email_verification (id,time_send) values ($1,$2)", emailToken, timeStringEmail); err != nil {
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	if _, err := db.Exec(context.Background(), "INSERT INTO email_verification (id,inquiry_id,time_send) values ($1,$2,$3)", emailToken, inquiry_id, timeStringEmail); err != nil {
+		http.Error(w, "Internal Server Error (CODE 4)", http.StatusInternalServerError)
+		return
+	}
+
+	if _, err := db.Exec(context.Background(), "INSERT INTO answers (inquiry_id,data_protection,hardware,workingtime,fitness,holiday,education,working_from_home) values ($1,$2,$3,$4,$5,$6,$7,$8)", inquiry_id, inquiry.DataProtection, inquiry.Hardware, inquiry.Workingtime, inquiry.Fitness, inquiry.Holiday, inquiry.Education, inquiry.WorkingFromHome); err != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error (CODE 5)", http.StatusInternalServerError)
 		return
 	}
 
@@ -127,8 +140,10 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Println(mailId)
+
 	var time_send string
-	if err := db.QueryRow(context.Background(), "SELECT time_send FROM email_verification WHERE inquiry_id = $1", mailId).Scan(&time_send); err != nil {
+	if err := db.QueryRow(context.Background(), "SELECT time_send FROM email_verification WHERE id = $1", mailId).Scan(&time_send); err != nil {
 		http.Error(w, "No sending time found", http.StatusBadRequest)
 		return
 	}
