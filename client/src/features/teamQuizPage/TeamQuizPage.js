@@ -21,8 +21,8 @@ export default function TeamQuizPage () {
         Ihr übernehmt gemeisam Verantwortung für eure Arbeit ?
       </SubTitle>
       <QuizButtonContainer>
-        <QuizButton emoji="❌" text={"Nein"} />
-        <QuizButton emoji="👩🏽‍💻👨🏼‍💻🧑🏻‍💻" text={"Ja! Teamwork lets the Dream Work!"} onClick={() => navigate('/concentration-quiz')}/>
+        <QuizButton emoji="❌" text={"Nein"} onClick={() => navigate('/team-quiz-fail')}/>
+        <QuizButton emoji="👩🏽‍💻👨🏼‍💻🧑🏻‍💻" text={"Ja! Teamwork makes the dream work!"} onClick={() => navigate('/concentration-quiz')}/>
       </QuizButtonContainer>
     </ResponsiveContainer>
   )
