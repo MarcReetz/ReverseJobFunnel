@@ -7,31 +7,31 @@ import Selector from "../../components/Selector/Selector";
 import React, { useState } from 'react';
 import Title from "../../components/Title/Title"
 import SubTitle from "../../components/SubTitle/SubTitle"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectBenefitsSlice } from "../benefitsPage/benefitsSlice";
+import { setName,selectName, selectSubmitSlice,setEmail,selectEmail, selectPhone,setPhone, selectDataProtection, switchtDataProtection } from "./submitPageSlice";
 
 
 export default function SubmitPage() {
   const benefitsSlice = useSelector(selectBenefitsSlice)
+  const submitPageSlice = useSelector(selectSubmitSlice)
+  const dispatch = useDispatch()
 
   const baseUrl = "http://localhost:3000/"
 
-  const [name,setName] = useState("")
   const [isValidName,setIsValidName] = useState(false)
   const [isErrorName,setIsErrorName] = useState(false)
 
-  const [email,setEmail] = useState("")
   const [isValidEmail,setIsValidEmail] = useState(false)
   const [isErrorEmail,setIsErrorEmail] = useState(false)
 
-  const [phone,setPhone] = useState("")
   const [isValidPhone,setIsValidPhone] = useState(false)
   const [isErrorPhone,setIsErrorPhone] = useState(false)
 
   const [privacy,setPrivacy] = useState(false)
 
   const onChangeName = (event) => {
-    setName(event.target.value)
+    dispatch(setName(event.target.value))
     if(event.target.value.length > 0){
       setIsValidName(true)
       setIsErrorName(false)
@@ -41,7 +41,7 @@ export default function SubmitPage() {
   }
 
   const onChangeEmail = (event) => {
-    setEmail(event.target.value)
+    dispatch(setEmail(event.target.value))
 
     if(event.target.value && (/^\S+@\S+\.\S+$/).test(event.target.value)){
       setIsValidEmail(true)
@@ -52,7 +52,7 @@ export default function SubmitPage() {
   }
 
   const onChangePhone = (event) => {
-    setPhone(event.target.value)
+    dispatch(setPhone(event.target.value))
 
     if(event.target.value && (/^(\+)?([ 0-9]){6,16}$/).test(event.target.value)){
       setIsValidPhone(true)
@@ -63,14 +63,14 @@ export default function SubmitPage() {
   }
 
   const onClickPrivacy = () => {
-    setPrivacy(!privacy)
+    dispatch(switchtDataProtection())
   }
 
   const onSubmit = () => {
 
     const response = fetch(baseUrl + "api/signup", {
       method: "Post",
-      body: JSON.stringify({ ...benefitsSlice
+      body: JSON.stringify({ ...benefitsSlice , ...submitPageSlice
       }),
     });
 
@@ -87,25 +87,25 @@ export default function SubmitPage() {
         <SubTitle>Fast geschafft 🎉 Letzter Schritt! </SubTitle>
         <Title>Cool! Ich möchte dich und dein Team sehr gerne kennenlernen.</Title>
         <EmojiText emoji={"👋"} text={"Dein Name"} />
-        <Input placeholder={"max mustermann"} name={"name"} value={name} onChange={onChangeName} isValid={isValidName} isError={isErrorName}/>
+        <Input placeholder={"max mustermann"} name={"name"} value={useSelector(selectName)} onChange={onChangeName} isValid={isValidName} isError={isErrorName}/>
         <EmojiText
           emoji={"✉️"}
           text={"Deine E-Mail Adresse"}
           htmlFor={"email"}
         />
-        <Input placeholder={"example@test.de"} name={"email"} value={email} onChange={onChangeEmail} isValid={isValidEmail} isError={isErrorEmail}/>
+        <Input placeholder={"example@test.de"} name={"email"} value={useSelector(selectEmail)} onChange={onChangeEmail} isValid={isValidEmail} isError={isErrorEmail}/>
         <EmojiText
           emoji={"📞"}
           text={"Deine Telefonnummer"}
           htmlFor={"phoneNumber"}
         />
-        <Input placeholder={"01234 56789"} name={"phoneNumber"} value={phone} onChange={onChangePhone} isValid={isValidPhone} isError={isErrorPhone} />
+        <Input placeholder={"01234 56789"} name={"phoneNumber"} value={useSelector(selectPhone)} onChange={onChangePhone} isValid={isValidPhone} isError={isErrorPhone} />
       </div>
       <div className={styles.container}>
         <Selector
           emoji={"🖋️"}
           text={"Datenschutzerklärung gelesen und Akzeptiert"}
-          isChecked={privacy}
+          isChecked={useSelector(selectDataProtection)}
           onClick={onClickPrivacy}
         />
         <Button text={"Absenden 📬"} onClick={onSubmit}/>
