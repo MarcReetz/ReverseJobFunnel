@@ -10,7 +10,7 @@ export default function SKillQuizPage() {
   return (
     <ResponsiveContainer>
       <Title>
-        Was Zählt bei der Bewerbung mehr für Euch:
+        Was Zählt bei der Bewerbung mehr für euch:
       </Title>
       <QuizButtonContainer>
         <QuizButton emoji="📜" text={"Abschlüsse"} onClick={() => navigate('/skill-quiz-fail')}/>
