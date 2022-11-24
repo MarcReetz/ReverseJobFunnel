@@ -14,8 +14,9 @@ export default function ThirdPage () {
     <ResponsiveContainer>
       <Title>Was sonst so</Title>
       <EmojiTextTable>
-        <EmojiTextTableElement emoji={"🛩 "}>Auch mit Daten Kann ich umgehen: SQL, PostgreSQL, JSON, usw Stellen keine Fremdwörter für mich da! </EmojiTextTableElement>
-        <EmojiTextTableElement emoji={"🛩 "}>Mathe und Formeln sind keine Angstgegner. Siehe dir dazu gerne meine Implementierung eines Spring Embedder Algorithmuses <a href={"https://github.com/MarcReetz/Portfolio/blob/dev/src/services/SpringEmbedder.ts"}>hier</a> an</EmojiTextTableElement>
+        <EmojiTextTableElement emoji={"📊 "}>Auch mit Daten Kann ich umgehen: SQL, PostgreSQL, JSON, usw Stellen keine Fremdwörter für mich da! </EmojiTextTableElement>
+        <EmojiTextTableElement emoji={"🧮 "}>Mathe und Formeln sind keine Agnstgegner. Siehe dir dazu gerne meine Implementierung eines Spring Embedder Algorithmuses <a href={"https://github.com/MarcReetz/Portfolio/blob/dev/src/services/SpringEmbedder.ts"}>hier</a> an</EmojiTextTableElement>
+        <EmojiTextTableElement emoji={"🇺🇳"}>Deutsch ist meine Muttersprache und English behersche ich gut bis Sehr gut. Mein Chinesich und Französich brauchten aber ganz sicher mal wieder ein bische übung um Gesprächs sicher zu sein.</EmojiTextTableElement>
         <EmojiTextTableElement emoji={"🛩 "}>Ihr braucht jemand der durch Deutschland und die Welt reist kein problem! </EmojiTextTableElement>
         <EmojiTextTableElement emoji={"🚗"}>Falls man ihn braucht besitze ich den Führerschein Klasse B.</EmojiTextTableElement>
       </EmojiTextTable>
