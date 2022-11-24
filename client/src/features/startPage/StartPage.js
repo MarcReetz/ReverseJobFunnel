@@ -14,13 +14,13 @@ export default function StartPage () {
   return (
     <ResponsiveContainer>
       <SubTitle>
-        Einen neuen Mitarbeiter in nur 2 Minuten -<br/>
+        Einen neuen Bewerber in nur 2 Minuten -<br/>
         ohne Headhunter ✨
       </SubTitle>
       <Title>
         Moin ich bin<br/>
         <strong>Marc Reetz</strong><br/>
-        und ich könnte ihr Team verstärken als <br/>
+        und ich könnte dein Team verstärken als <br/>
         <strong>Software Developer</strong>
       </Title>
       <SubTitle>
