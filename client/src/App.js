@@ -13,11 +13,13 @@ import FailPage from "./features/failPage/FailPage";
 import ConcentrationQuizPage from "./features/concentrationQuizPage/ConcentrationQuizPage";
 import SucessSubmitPage from "./features/sucessSubmitPage/SucessSubmitPage";
 
+
 function App() {
   return (
     <Routes>
-      <Route path={"/"} element={<Frame />}>
-        <Route path={"start"} element={<StartPage />} />
+      <Route element={<Frame />}>
+
+        <Route path={"/"} element={<StartPage />} />
         <Route path={"skills"} element={<SecondPage />} />
         <Route path={"softskills"} element={<ThirdPage />} />
         <Route path={"benefits"} element={<BenefitsPage />} />
