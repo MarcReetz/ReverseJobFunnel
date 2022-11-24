@@ -12,7 +12,7 @@ export default function TeamQuizPage () {
   return (
     <ResponsiveContainer>
       <Title>
-        Im Team besitzt ihr eine Offene und Ehrliche Kritik und Lob Kultur?
+        Im Team besitzt ihr eine offene und ehrliche Kritik und Lob Kultur?
       </Title>
       <SubTitle>
         Flache Hirachien sind bei euch nicht nur ein Buzzword ?
