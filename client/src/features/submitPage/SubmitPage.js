@@ -84,7 +84,7 @@ export default function SubmitPage() {
   return (
     <ResponsiveContainer>
       <div className={styles.inputContainer}>
-        <SubTitle>Fast geschafft 🎉 Letzter Schritt! </SubTitle>
+        <SubTitle>Fast geschafft 🎉 letzter Schritt! </SubTitle>
         <Title>Cool! Ich möchte dich und dein Team sehr gerne kennenlernen.</Title>
         <EmojiText emoji={"👋"} text={"Dein Name"} />
         <Input placeholder={"max mustermann"} name={"name"} value={useSelector(selectName)} onChange={onChangeName} isValid={isValidName} isError={isErrorName}/>
@@ -104,13 +104,13 @@ export default function SubmitPage() {
       <div className={styles.container}>
         <Selector
           emoji={"🖋️"}
-          text={"Datenschutzerklärung gelesen und Akzeptiert"}
+          text={"Datenschutzerklärung gelesen und akzeptiert."}
           isChecked={useSelector(selectDataProtection)}
           onClick={onClickPrivacy}
         />
         <Button text={"Absenden 📬"} onClick={onSubmit}/>
         
-        <SubTitle><strong>So geht's jetzt weiter:</strong> <br/> Ich melde mich bei dir zeitnah, um ein 5 minutiges telefongespräch mit dir zu führen. <br/> Wenn wir gut zueinander passen, können wir von da aus weiter schauen.</SubTitle>
+        <SubTitle><strong>So geht's jetzt weiter:</strong> <br/> Ich melde mich zeitnah bei dir, um ein 5-minütiges Telefongespräch mit dir zu führen. <br/> Wenn wir gut zueinanderpassen, können wir von da aus weiterschauen.</SubTitle>
         </div>
     </ResponsiveContainer>
   );

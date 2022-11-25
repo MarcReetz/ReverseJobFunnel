@@ -30,7 +30,7 @@ function App() {
           element={
             <FailPage
               text={
-                "ich kann dir und deinen Team leider nicht viele abschlüsse anbieten. Ich habe einige Kurse auf codecademy abgeschlossen. Ich besitze Relevante Fähikeiten in der Front- und Back-end etwicklung schaue dir dazu gerne mein verlinktes Github profile an!"
+                "ich kann dir und deinen Team leider nicht viele Abschlüsse anbieten. Ich habe einige Kurse auf codecademy abgeschlossen. Ich besitze relevante Fähigkeiten in der Front- und Backend Entwicklung, schaue dir dazu gerne mein verlinktes Github Profile an!"
               }
               navigate={"/skill-quiz"}
             />
@@ -41,13 +41,13 @@ function App() {
           path={"training-quiz-fail"}
           element={
             <FailPage
-              text={"ich suche jedoch eine Firma die mich gut Einarbeitet."}
+              text={"ich suche jedoch eine Firma die mich gut einarbeitet."}
               navigate={"/training-quiz"}
             />
           }
         />
         <Route path={"team-quiz"} element={<TeamQuizPage />} />
-        <Route path={"team-quiz-fail"} element={<FailPage text={'jedoch suche ich ein unternehmen mit einen modernen Team verständis.'} navigate={"/team-quiz"}/>}/>
+        <Route path={"team-quiz-fail"} element={<FailPage text={'jedoch suche ich ein Unternehmen mit einem modernen Teamverständis.'} navigate={"/team-quiz"}/>}/>
         <Route
           path={"concentration-quiz"}
           element={<ConcentrationQuizPage />}
@@ -57,7 +57,7 @@ function App() {
           element={
             <FailPage
               text={
-                "ich brauche jedoch manchmal am Tag meine ruhe um aufgaben schnell und sauber zu bearbeiten."
+                "ich brauche jedoch manchmal am Tag meine Ruhe um Aufgaben schnell und sauber zu bearbeiten."
               }
               navigate={"/concentration-quiz"}
             />

@@ -11,10 +11,10 @@ export default function FailPage(props) {
   return (
     <ResponsiveContainer>
       <TextLeft>Schade, {props.text}</TextLeft>
-      <TextLeft>Kennst du noch jemanden der Einen Softwareentwickler sucht ? Dann schicke ihm doch einfach dehn Link der unten steht</TextLeft>
+      <TextLeft>Kennst du noch jemanden der einen Softwareentwickler sucht? Dann schicke ihm doch einfach den Link der unten steht:</TextLeft>
       <TextLeft><a href="https://www.marc-reetz.me/">https://www.marc-reetz.me/</a></TextLeft>
       <TextLeft>oder</TextLeft>
-      <TextLeft>Schicke ihn dehn Link zur meiner Portfolio seite:</TextLeft>
+      <TextLeft>schicke ihn den Link zu meiner Portfolio Seite:</TextLeft>
       <TextLeft><a href="https://www.marc-reetz.me/" target={'_blank'} rel="noreferrer" >https://www.marc-reetz.me/</a></TextLeft>
       <SubTitle>
         <strong>Aus Versehen falsch geklickt? </strong> <br /> Dann klicke
