@@ -34,19 +34,19 @@ export default function BenefitsPage() {
       <EmojiTextTable>
         <Selector
           emoji={"💻"}
-          text={"Freie Hardware Wahl (oder Mac os)"}
+          text={"Freie Hardware-Wahl (oder macOS)"}
           isChecked={useSelector(selectHardware)}
           onClick={() => dispatch(switchHardware())}
         />
         <Selector
           emoji={"⏱️"}
-          text={"Modernes Arbeitszeit Modell"}
+          text={"Modernes Arbeitszeitmodell"}
           isChecked={useSelector(selectTime)}
           onClick={() => dispatch(switchTime())}
         />
         <Selector
           emoji={"💪"}
-          text={"Job fitness Angebote"}
+          text={"Job Fitnessangebote"}
           isChecked={useSelector(selectFitness)}
           onClick={() => dispatch(switchFitness())}
         />
@@ -64,7 +64,7 @@ export default function BenefitsPage() {
         />
         <Selector
           emoji={"🏠"}
-          text={"Home office Möglichkeiten"}
+          text={"Homeoffice Möglichkeiten"}
           isChecked={useSelector(selectRemoteWorking)}
           onClick={() => dispatch(switchRemoteworking())}
         />
@@ -72,7 +72,7 @@ export default function BenefitsPage() {
       <SpacerX size={"l"} />
       <CenterX>
         <Button
-          text={"Zum Letzten Schritt 🏁"}
+          text={"Zum letzten Schritt 🏁"}
           onClick={() => navigate("/submit")}
         />
       </CenterX>

@@ -12,13 +12,13 @@ export default function TeamQuizPage () {
   return (
     <ResponsiveContainer>
       <Title>
-        Im Team besitzt ihr eine offene und ehrliche Kritik und Lob Kultur?
+        Im Team besitzt ihr eine offene und ehrliche Kritik- und Lobkultur?
       </Title>
       <SubTitle>
-        Flache Hirachien sind bei euch nicht nur ein Buzzword ?
+        Flache Hierachien sind bei euch nicht nur ein Buzzword?
       </SubTitle>
       <SubTitle>
-        Ihr übernehmt gemeisam Verantwortung für eure Arbeit ?
+        Ihr übernehmt gemeisam Verantwortung für eure Arbeit?
       </SubTitle>
       <QuizButtonContainer>
         <QuizButton emoji="❌" text={"Nein"} onClick={() => navigate('/team-quiz-fail')}/>
