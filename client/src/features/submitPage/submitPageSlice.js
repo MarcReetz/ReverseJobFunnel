@@ -5,6 +5,9 @@ const initialState = {
   email: "",
   phone: "",
   dataProctection: false,
+  isValidName: false,
+  isValidEmail: false,
+  isValidPhone: false,
 };
 
 export const submitSlice = createSlice({
@@ -20,8 +23,17 @@ export const submitSlice = createSlice({
     setPhone: (state,action) => {
       state.phone = action.payload
     },
-    switchtDataProtection: (state) => {
+    switchDataProtection: (state) => {
       state.dataProctection = !state.dataProctection
+    },
+    setIsValidName: (state,action) => {
+      state.isValidName = action.payload
+    },
+    setIsValidEmail: (state,action) => {
+      state.isValidEmail = action.payload
+    },
+    setIsValidPhone: (state,action) => {
+      state.isValidPhone = action.payload
     }
   }
 })
@@ -31,7 +43,11 @@ export const selectName = (state) => state.submit.name
 export const selectEmail = (state) => state.submit.email
 export const selectPhone = (state) => state.submit.phone
 export const selectDataProtection = (state) => state.submit.dataProctection
+export const selectIsValidName = (state) => state.submit.isValidName
+export const selectIsValidEmail = (state) => state.submit.isValidEmail
+export const selectIsValidPhone = (state) => state.submit.isValidPhone
 
-export const {switchtDataProtection,setName,setEmail,setPhone} = submitSlice.actions;
+
+export const {setIsValidPhone,setIsValidEmail,setIsValidName,switchDataProtection,setName,setEmail,setPhone} = submitSlice.actions;
 
 export default submitSlice.reducer
