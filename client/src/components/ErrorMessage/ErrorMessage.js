@@ -10,6 +10,7 @@ export default function ErrorMessage (props) {
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
+        <button className={styles.xButton} onClick={props.onClickX}>X</button>
         <h2>{props.title}</h2>
         <p>{props.text}</p>
         <CenterX>
