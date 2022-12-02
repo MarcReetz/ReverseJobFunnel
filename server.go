@@ -42,7 +42,7 @@ func main() {
 	log.Println("Loading env")
 	err := godotenv.Load(".env")
 	if err != nil {
-		log.Fatalf("Some error occured. Err: %s", err)
+		log.Println("Some error occured. Err: %s", err)
 	}
 	log.Println("Loading Database")
 	log.Println(os.Getenv("DATABASE_URL"))

@@ -10,10 +10,10 @@ COPY go.sum ./
 
 RUN go mod download
 
-COPY *.go ./
-
+COPY . ./
+RUN ls
+RUN ls
 RUN go build -o ./server
-
 ENV PATH="./.env"
 
 RUN pwd

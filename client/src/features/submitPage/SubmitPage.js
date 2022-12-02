@@ -37,7 +37,7 @@ export default function SubmitPage() {
   const navigate = useNavigate();
 
   //"http://localhost:8081/"
-  const baseUrl = "https:marc-reetz.de/"
+  const baseUrl = "https://marc-reetz.de/"
 
   const [isErrorName, setIsErrorName] = useState(false);
   const [isErrorEmail, setIsErrorEmail] = useState(false);
