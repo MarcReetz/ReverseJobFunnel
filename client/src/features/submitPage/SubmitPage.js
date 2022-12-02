@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import Title from "../../components/Title/Title";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import SubTitle from "../../components/SubTitle/SubTitle";
+import TextLeft from "../../components/TextLeft/TextLeft";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBenefitsSlice } from "../benefitsPage/benefitsSlice";
@@ -176,6 +177,7 @@ export default function SubmitPage() {
             isChecked={useSelector(selectDataProtection)}
             onClick={onClickPrivacy}
           />
+          <TextLeft>Hier findest du die: <a href="/datenschutz.html">Datenschutzerklärung</a></TextLeft>
           <Button
             text={"Absenden 📬"}
             onClick={onSubmit}
