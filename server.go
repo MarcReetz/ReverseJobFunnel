@@ -35,6 +35,8 @@ var mailer *email.Mailer
 
 const twodays = time.Hour * 48
 
+var urlEmailSucces string
+
 func main() {
 	log.Println("Starting up Server")
 	log.Println("Loading env")
@@ -60,6 +62,7 @@ func main() {
 
 	log.Println("Init Mail Service")
 	mailer = email.NewMailer(os.Getenv("EMAIL_DISPLAYNAME"), os.Getenv("EMAIL_USERNAME"), os.Getenv("EMAIL_PASSWORD"), os.Getenv("EMAIL_SMTP_HOST"), os.Getenv("EMAIL_SMTP_PORT"))
+	urlEmailSucces = os.Getenv("URL-EMAIL-SUCCES")
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
@@ -80,7 +83,9 @@ func main() {
 		r.Get("/mail/{mailID}", mailSignup)
 	})
 
-	http.ListenAndServe(":3000", r)
+	port := os.Getenv("PORT")
+	log.Println(port)
+	http.ListenAndServe(":"+port, r)
 
 }
 
@@ -110,9 +115,9 @@ func signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	emailToken, err := uuid.NewRandom() //at error Handling !!
+	emailToken, err := uuid.NewRandom()
 	baseUrl := os.Getenv("SERVER_BASE_URL")
-	message := "PLS confirm your email Best wishes Marc /n" + "go to the following link to confirm you email:" + baseUrl + "/api/mail/" + emailToken.String()
+	message := "Bitte Bestätige deine E-Mail-Adresse. Gehe dafür zur volgender email Adresse: " + baseUrl + "/api/mail/" + emailToken.String() + "  Mit freundlichen Grüßen Marc Reetz. Wenn du dich nicht über das Formular auf marc-reetz.de mir eine Nachricht gesendet hast ignorire bitte diese Mail."
 	if err := mailer.SendMail(inquiry.Email, message, "Confirm your email"); err != nil {
 		http.Error(w, "Internal Server Error (CODE 3)", http.StatusInternalServerError)
 		return
@@ -153,7 +158,7 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !time.Now().Before(date.Add(twodays)) {
-		http.Error(w, "Sorry your Inquiry expired. You normally have only 48h to verify your Email", http.StatusBadRequest)
+		http.Error(w, "Leider hast du zu lange gewartet um deine E-Mail zu bestätigen. Du hast 48h dies Zutun.", http.StatusBadRequest)
 		//TODO delete old entry
 		return
 	}
@@ -165,5 +170,6 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Write([]byte("<head><meta http-equiv='refresh' content='0; URL=" + urlEmailSucces + "'></head>"))
 	w.WriteHeader(http.StatusAccepted)
 }
