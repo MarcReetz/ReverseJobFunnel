@@ -35,7 +35,8 @@ export default function SubmitPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const baseUrl = "http://localhost:3000/";
+  //"http://localhost:8081/"
+  const baseUrl = "https:marc-reetz.de/"
 
   const [isErrorName, setIsErrorName] = useState(false);
   const [isErrorEmail, setIsErrorEmail] = useState(false);
