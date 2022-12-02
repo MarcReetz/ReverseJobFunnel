@@ -12,13 +12,14 @@ import TeamQuizPage from "./features/teamQuizPage/TeamQuizPage";
 import FailPage from "./features/failPage/FailPage";
 import ConcentrationQuizPage from "./features/concentrationQuizPage/ConcentrationQuizPage";
 import SucessSubmitPage from "./features/sucessSubmitPage/SucessSubmitPage";
+import EmailSucces from "./features/emailSucces/EmailSucces";
 
 
 function App() {
   return (
     <Routes>
       <Route element={<Frame />}>
-
+        <Route path={"emailsucces"} element={<EmailSucces/>}/>
         <Route path={"/"} element={<StartPage />} />
         <Route path={"skills"} element={<SecondPage />} />
         <Route path={"softskills"} element={<ThirdPage />} />
