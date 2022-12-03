@@ -62,7 +62,7 @@ func main() {
 
 	log.Println("Init Mail Service")
 	mailer = email.NewMailer(os.Getenv("EMAIL_DISPLAYNAME"), os.Getenv("EMAIL_USERNAME"), os.Getenv("EMAIL_PASSWORD"), os.Getenv("EMAIL_SMTP_HOST"), os.Getenv("EMAIL_SMTP_PORT"))
-	urlEmailSucces = os.Getenv("URL-EMAIL-SUCCES")
+	urlEmailSucces = os.Getenv("URL_EMAIL_SUCCES")
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
@@ -172,6 +172,6 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte("<head><meta http-equiv='refresh' content='0; URL=" + os.Getenv("URL-EMAIL-SUCCES") + "'></head>"))
+	w.Write([]byte("<head><meta http-equiv='refresh' content='0; URL=" + urlEmailSucces + "'></head>"))
 	w.WriteHeader(http.StatusAccepted)
 }
