@@ -92,6 +92,8 @@ func main() {
 func signup(w http.ResponseWriter, r *http.Request) {
 	var inquiry Inquiry
 
+	log.Println("Request")
+
 	err := json.NewDecoder(r.Body).Decode(&inquiry)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
@@ -170,6 +172,6 @@ func mailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte("<head><meta http-equiv='refresh' content='0; URL=" + urlEmailSucces + "'></head>"))
+	w.Write([]byte("<head><meta http-equiv='refresh' content='0; URL=" + os.Getenv("URL-EMAIL-SUCCES") + "'></head>"))
 	w.WriteHeader(http.StatusAccepted)
 }
