@@ -15,7 +15,7 @@ export default function ThirdPage () {
       <Title>Was sonst so</Title>
       <EmojiTextTable>
         <EmojiTextTableElement emoji={"📊 "}>Auch mit Daten kann ich umgehen: SQL, PostgreSQL, JSON, usw. stellen keine Fremdwörter für mich da! </EmojiTextTableElement>
-        <EmojiTextTableElement emoji={"🧮 "}>Mathe und Formeln sind keine Angstgegner. Siehe dir dazu gerne meine Implementierung eines Spring Embedder Algorithmus <a href={"https://github.com/MarcReetz/Portfolio/blob/dev/src/services/SpringEmbedder.ts"}>hier</a> an</EmojiTextTableElement>
+        <EmojiTextTableElement emoji={"🧮 "}>Mathe und Formeln sind keine Angstgegner. Siehe dir dazu gerne meine Implementierung eines Spring Embedder Algorithmus <a href={"https://github.com/MarcReetz/Portfolio/blob/dev/src/services/SpringEmbedder.ts"} target="_blank" rel="noopener noreferrer">hier</a> an</EmojiTextTableElement>
         <EmojiTextTableElement emoji={"🇺🇳"}>Deutsch ist meine Muttersprache und English beherrsche ich gut bis sehr gut. Mein Chinesich und Französich bräuchten aber ganz sicher mal wieder ein bisschen Übung um gesprächssicher zu sein.</EmojiTextTableElement>
         <EmojiTextTableElement emoji={"🛩 "}>Ihr braucht jemand der durch Deutschland und die Welt reist, kein Problem! </EmojiTextTableElement>
         <EmojiTextTableElement emoji={"🚗"}>Falls man ihn braucht besitze ich den Führerschein Klasse B.</EmojiTextTableElement>
@@ -24,7 +24,7 @@ export default function ThirdPage () {
       <CenterX>
         <Button text={"Jetzt in wenigen Quizfragen herausfinden!"} onClick={() => navigate('/skill-quiz')}/>
       </CenterX>
-      <SubTitle>Noch nicht überzeugt? Schaue gerne auf meine Github Profil vorbei oder gehe auf meine Portfolio Seite</SubTitle>
+      <SubTitle>Noch nicht überzeugt? Schaue gerne auf mein <a href="https://github.com/MarcReetz" target="_blank" rel="noopener noreferrer">GitHub</a> Profil vorbei oder gehe auf meine <a href="https://www.marc-reetz.me/" target="_blank" rel="noopener noreferrer">Portfolio</a> Seite</SubTitle>
     </ResponsiveContainer>
   )
 }
