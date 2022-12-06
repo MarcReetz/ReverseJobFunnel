@@ -10,3 +10,7 @@
 .subTitle strong {
   font-weight: 400;
 }
+
+.subTitle a {
+  color: var(--yellow);
+}
